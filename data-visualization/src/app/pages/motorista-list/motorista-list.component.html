@@ -1,0 +1,48 @@
+<body>
+  
+  <nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Jornada</a>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+  </nav>
+  <table class="table table-striped table-bordered container">
+    <thead class="items-title">
+      <tr class="items">
+        <th>ID Motorista</th>
+        <th>Nome</th>
+        <th>Supervisor</th>
+        <th>Data</th>
+        <th>Início da Jornada</th>
+        <th>Fim da Jornada</th>
+        <th>Repouso</th>
+        <th>Tempo Total de Jornada</th>
+        <th>Condução</th>
+        <th>Direção Máx Contínua</th>
+        <th>Hora Extra</th>
+        <th>Refeição</th>
+        <th>Descanso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let motorista of motoristas">
+        <td>{{ motorista.idMot }}</td>
+        <td>{{ motorista.nomeMot }}</td>
+        <td>{{ motorista.supervisor }}</td>
+        <td>{{ motorista.data | date }}</td >
+        <td>{{ motorista.inicioJornada }}</td>
+        <td>{{ motorista.fimJornada }}</td>
+        <td>{{ motorista.repouso }}</td>
+        <td>{{ motorista.tempoTotalJornada }}</td>
+        <td>{{ motorista.conducao }}</td>
+        <td>{{ motorista.direcaoMaxContinua }}</td>
+        <td>{{ motorista.horaExtra }}</td>
+        <td>{{ motorista.refeicao }}</td>
+        <td>{{ motorista.descanso }}</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
