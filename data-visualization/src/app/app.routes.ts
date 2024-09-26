@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 import { MotoristaListComponent } from './pages/motorista-list/motorista-list.component';
 import { HomeComponent } from './pages/home/home.component';
 

@@ -25,7 +25,6 @@
           <th>ID Motorista</th>
           <th>Nome</th>
           <th>Supervisor</th>
-          <th>Data</th>
           <th>Início da Jornada</th>
           <th>Fim da Jornada</th>
           <th>Repouso</th>
@@ -42,13 +41,12 @@
           <td>{{ motorista.idMot }}</td>
           <td>{{ motorista.nomeMot }}</td>
           <td>{{ motorista.supervisor }}</td>
-          <td>{{ motorista.data | date }}</td>
           <td>{{ motorista.inicioJornada }}</td>
           <td>{{ motorista.fimJornada }}</td>
           <td>{{ motorista.repouso }}</td>
-          <td>{{ motorista.tempoTotalJornada }}</td>
+          <td>{{ motorista.tJornada }}</td>
           <td>{{ motorista.conducao }}</td>
-          <td>{{ motorista.direcaoMaxContinua }}</td>
+          <td>{{ motorista.dirMaxContinua }}</td>
           <td>{{ motorista.horaExtra }}</td>
           <td>{{ motorista.refeicao }}</td>
           <td>{{ motorista.descanso }}</td>

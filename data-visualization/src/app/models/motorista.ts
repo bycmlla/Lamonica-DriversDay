@@ -1,4 +1,5 @@
 export interface Motorista {
+    id: number;
     idMot: number;
     nomeMot: string;
     supervisor: string;
@@ -6,9 +7,9 @@ export interface Motorista {
     inicioJornada: string;
     fimJornada: string;
     repouso: string;
-    tempoTotalJornada: string;
+    tJornada: string;
     conducao: string;
-    direcaoMaxContinua: string;
+    dirMaxContinua: string;
     horaExtra: string;
     refeicao: string;
     descanso: string;

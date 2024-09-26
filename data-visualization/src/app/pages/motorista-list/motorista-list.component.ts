@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, importProvidersFrom, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Motorista } from '../../models/motorista';
 import { FormsModule } from '@angular/forms';
+import { MotoristaService } from '../../services/motorista.service';
+
 
 @Component({
   selector: 'app-motorista-list',
@@ -11,99 +13,47 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './motorista-list.component.scss',
 })
 export class MotoristaListComponent implements OnInit {
+
   displayedColumns: string[] = [
     'idMot',
     'nomeMot',
     'supervisor',
     'data',
     'inicioJornada',
-    'fimJornada',
+    'fimJornada', 
     'repouso',
-    'tempoTotalJornada',
+    'tJornada',
     'conducao',
-    'direcaoMaxContinua',
+    'dirMaxContinua',
     'horaExtra',
     'refeicao',
     'descanso',
   ];
-  motoristas: Motorista[] = [
-    {
-      idMot: 2,
-      nomeMot: 'roberto silva',
-      supervisor: 'Carlos Oliveira',
-      data: new Date(),
-      inicioJornada: '08:00',
-      fimJornada: '18:00',
-      repouso: '1h',
-      tempoTotalJornada: '10h',
-      conducao: '5h',
-      direcaoMaxContinua: '2h',
-      horaExtra: '1h',
-      refeicao: '30min',
-      descanso: '15min',
-    },
-    {
-      idMot: 1,
-      nomeMot: 'João Silva',
-      supervisor: 'Carlos Oliveira',
-      data: new Date(),
-      inicioJornada: '08:00',
-      fimJornada: '18:00',
-      repouso: '1h',
-      tempoTotalJornada: '10h',
-      conducao: '5h',
-      direcaoMaxContinua: '2h',
-      horaExtra: '1h',
-      refeicao: '30min',
-      descanso: '15min',
-    },
-    {
-      idMot: 3,
-      nomeMot: 'camila aguiar',
-      supervisor: 'Carlos Oliveira',
-      data: new Date(),
-      inicioJornada: '08:00',
-      fimJornada: '18:00',
-      repouso: '1h',
-      tempoTotalJornada: '10h',
-      conducao: '5h',
-      direcaoMaxContinua: '2h',
-      horaExtra: '1h',
-      refeicao: '30min',
-      descanso: '15min',
-    },
-    {
-      idMot: 3,
-      nomeMot: 'camila aguiar',
-      supervisor: 'Carlos Oliveira',
-      data: new Date(),
-      inicioJornada: '08:00',
-      fimJornada: '18:00',
-      repouso: '1h',
-      tempoTotalJornada: '10h',
-      conducao: '5h',
-      direcaoMaxContinua: '2h',
-      horaExtra: '1h',
-      refeicao: '30min',
-      descanso: '15min',
-    },
-  ];
+
+  motoristas: Motorista[] = [];
   filteredMotoristas: Motorista[] = this.motoristas;
   filterValue: string = '';
 
-  constructor() {}
+  constructor(private motoristaService: MotoristaService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.motoristaService.getMotoristas().subscribe((data) => {
+      this.motoristas = data;
+      this.filteredMotoristas = this.motoristas;
+      console.log(this.motoristas)
+          });
+  }
 
   buscarMotoristas(): void {
     const nome = this.filterValue.trim().toLowerCase();
-
+  
     if (nome === '') {
       this.filteredMotoristas = this.motoristas;
     } else {
       this.filteredMotoristas = this.motoristas.filter((motorista) =>
-        motorista.nomeMot.toLowerCase().includes(nome)
+        motorista.nomeMot?.toLowerCase().includes(nome)
       );
     }
   }
+  
 }

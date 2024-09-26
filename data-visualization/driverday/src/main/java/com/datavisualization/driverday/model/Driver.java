@@ -10,6 +10,9 @@ import java.time.LocalDate;
 
 public class Driver {
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
   @Column(name = "IDMOT")
   private Long idMot;
 
@@ -46,6 +49,13 @@ public class Driver {
 
   private String descanso;
 
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long Id) {
+    this.id = Id;
+  }
   public Long getIdMot() {
     return idMot;
   }
