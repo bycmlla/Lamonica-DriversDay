@@ -5,6 +5,7 @@ import { Motorista } from '../../models/motorista';
 import { FormsModule } from '@angular/forms';
 import { MotoristaService } from '../../services/motorista.service';
 import { ChangeDetectorRef } from '@angular/core';
+import * as XLSX from 'xlsx'
 
 @Component({
   selector: 'app-motorista-list',
@@ -97,5 +98,31 @@ export class MotoristaListComponent implements OnInit {
 
     this.filteredMotoristas = motoristasFiltrados;
     this.cd.detectChanges();
+  }
+
+
+  exportarParaExcel(): void {
+    const dadosParaExportar = this.filteredMotoristas.map((motorista) => ({
+      'ID Motorista': motorista.idMot,
+      Nome: motorista.nomeMot,
+      Supervisor: motorista.supervisor,
+      'Início da Jornada': motorista.inicioJornada,
+      'Fim da Jornada': motorista.fimJornada,
+      Repouso: motorista.repouso,
+      'Tempo Total de Jornada': motorista.tJornada,
+      Condução: motorista.conducao,
+      'Direção Máx Contínua': motorista.dirMaxContinua,
+      'Hora Extra': motorista.horaExtra,
+      Refeição: motorista.refeicao,
+      Descanso: motorista.descanso,
+    }));
+
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(dadosParaExportar);
+    const workbook: XLSX.WorkBook = {
+      Sheets: { 'Motoristas Filtrados': worksheet },
+      SheetNames: ['Motoristas Filtrados'],
+    };
+
+    XLSX.writeFile(workbook, 'motoristas_filtrados.xlsx');
   }
 }

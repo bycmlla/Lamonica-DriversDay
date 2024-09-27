@@ -51,38 +51,47 @@
         </div>
       </div>
 
-        <div class="row">
-          <div class="col">
-            <div ngbDropdown class="d-inline-block">
-              <button
-                type="button"
-                class="btn btn-secondary dropdown-toggle dropdown-search"
-                id="dropdownSupervisor"
-                ngbDropdownToggle
-              >
-              {{ selectedDate ? (selectedDate | date:'dd/MM/yyyy') : "Buscar Data da Jornada..." }}
-              </button>
+      <div class="row">
+        <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <button
+              type="button"
+              class="btn btn-secondary dropdown-toggle dropdown-search"
+              id="dropdownSupervisor"
+              ngbDropdownToggle
+            >
+              {{
+                selectedDate
+                  ? (selectedDate | date : "dd/MM/yyyy")
+                  : "Buscar Data da Jornada..."
+              }}
+            </button>
 
-              <div
-                ngbDropdownMenu
-                aria-labelledby="dropdownSupervisor"
-                class="dropdown-scrollable"
+            <div
+              ngbDropdownMenu
+              aria-labelledby="dropdownSupervisor"
+              class="dropdown-scrollable"
+            >
+              <button
+                class="dropdown-item"
+                *ngFor="let dataItem of data"
+                (click)="buscarMotoristasPorData(dataItem)"
+                ngbDropdownItemx
               >
-                <button
-                  class="dropdown-item"
-                  *ngFor="let dataItem of data"
-                  (click)="buscarMotoristasPorData(dataItem)"
-                  ngbDropdownItemx
-                >
-                {{ dataItem | date:'dd/MM/yyyy' }}
-                </button>
-              </div>
+                {{ dataItem | date : "dd/MM/yyyy" }}
+              </button>
             </div>
           </div>
         </div>
+      </div>
 
       <div>
-        <img src="/excel.png" class="excel-icon" alt="download excel" />
+        <img
+          src="/excel.png"
+          class="excel-icon"
+          alt="download excel"
+          (click)="exportarParaExcel()"
+        />
         <img src="/txt.png" class="excel-icon" alt="download txt" />
       </div>
     </div>
