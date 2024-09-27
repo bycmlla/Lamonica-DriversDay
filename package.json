@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^17.0.1",
+    "@popperjs/core": "^2.11.8",
     "bootstrap-icons": "^1.11.3",
     "fontawesome": "^5.6.3",
     "ngx-bootstrap-icons": "^1.9.3"

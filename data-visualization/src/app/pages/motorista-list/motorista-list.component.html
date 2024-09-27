@@ -1,24 +1,94 @@
 <body>
   <nav class="navbar">
     <div class="container-fluid">
-      <img src="/speed.png" width="30px" alt="speed" class="speed-img">
-      <span style="color: white;">Jornada</span>
+      <img src="/speed.png" width="30px" alt="speed" class="speed-img" />
+      <span style="color: white">Jornada</span>
     </div>
   </nav>
-  <div class="table-container">
-    <div class="d-flex justify-content-center px-5">
+  <section class="filters-container">
+    <div class="d-flex justify-content-center flex-wrap">
       <div class="search">
         <input
           type="text"
           class="search-input"
           placeholder="Buscar motorista..."
-          [(ngModel)]="filterValue" 
-          name=""
+          [(ngModel)]="filterValue"
+          (input)="buscarMotoristas()"
         />
-        <a class="search-icon" (click)="buscarMotoristas()"> <i class="bi bi-search"></i> </a>
+        <a class="search-icon" (click)="buscarMotoristas()">
+          <i class="bi bi-search"></i>
+        </a>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <button
+              type="button"
+              class="btn btn-secondary dropdown-toggle dropdown-search"
+              id="dropdownSupervisor"
+              ngbDropdownToggle
+              [(ngModel)]="filterSupervisor"
+            >
+              {{ selectedSupervisor || "Buscar supervisor..." }}
+            </button>
+
+            <div
+              ngbDropdownMenu
+              aria-labelledby="dropdownSupervisor"
+              class="dropdown-scrollable"
+            >
+              <button
+                class="dropdown-item"
+                *ngFor="let supervisor of supervisores"
+                (click)="buscarMotoristasPorSupervisor(supervisor)"
+                ngbDropdownItem
+              >
+                {{ supervisor }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="row">
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
+              <button
+                type="button"
+                class="btn btn-secondary dropdown-toggle dropdown-search"
+                id="dropdownSupervisor"
+                ngbDropdownToggle
+              >
+              {{ selectedDate ? (selectedDate | date:'dd/MM/yyyy') : "Buscar Data da Jornada..." }}
+              </button>
+
+              <div
+                ngbDropdownMenu
+                aria-labelledby="dropdownSupervisor"
+                class="dropdown-scrollable"
+              >
+                <button
+                  class="dropdown-item"
+                  *ngFor="let dataItem of data"
+                  (click)="buscarMotoristasPorData(dataItem)"
+                  ngbDropdownItemx
+                >
+                {{ dataItem | date:'dd/MM/yyyy' }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div>
+        <img src="/excel.png" class="excel-icon" alt="download excel" />
+        <img src="/txt.png" class="excel-icon" alt="download txt" />
       </div>
     </div>
+  </section>
 
+  <section class="table-container">
     <table class="table table-striped table-bordered container">
       <thead class="items-title">
         <tr class="items">
@@ -53,5 +123,5 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </section>
 </body>

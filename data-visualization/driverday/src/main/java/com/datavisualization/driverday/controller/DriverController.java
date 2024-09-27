@@ -5,7 +5,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.datavisualization.driverday.model.Driver;
 import com.datavisualization.driverday.repository.DriverRepository;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/drivers")
@@ -26,5 +29,9 @@ public class DriverController {
   @GetMapping("/{id}")
   public Driver findById(@PathVariable Long id) {
     return repository.findById(id).orElse(null);
+  }
+  @GetMapping("/supervisor/{supervisor}")
+  public List<Driver> findBySupervisor(@PathVariable String supervisor) {
+    return repository.findBySupervisor(supervisor);
   }
 }

@@ -1,20 +1,9 @@
 body {
   background-color: #f2f5f7;
 }
-
-.table {
-  border-radius: 5px;
-  overflow: hidden;
-}
-.container {
-  margin-top: 10px;
-
-  .items th {
-    font-size: 12px;
-  }
-  tbody tr td {
-    font-size: 12px;
-  }
+.filters-container {
+  display: flex;
+  flex-direction: row;
 }
 .navbar {
   background: rgb(2, 0, 36);
@@ -29,11 +18,8 @@ body {
   color: white;
 }
 .search {
-  width: 100%;
-  margin-bottom: auto;
-  margin-top: 20px;
-  margin-right: 28px;
-  margin-left: 28px;
+  flex-grow: 1;
+  max-width: 300px;
   height: 50px;
   background-color: #fff;
   padding: 10px;
@@ -42,32 +28,22 @@ body {
 }
 
 .search-input {
-  color: white;
+  color: black;
   border: 0;
   outline: 0;
   background: none;
-  width: 0;
-  margin-top: 5px;
-  caret-color: transparent;
-  line-height: 20px;
-  transition: width 0.4s linear;
-}
-
-.search .search-input {
-  padding: 0 10px;
   width: 100%;
+  height: 100%;
   caret-color: #536bf6;
   font-size: 19px;
-  font-weight: 300;
-  color: black;
-  transition: width 0.4s linear;
+  padding: 0 10px;
 }
-.search-input::placeholder {
-  font-size: 14px;
-}
+
 .search-icon {
   height: 34px;
   width: 34px;
+  position: relative;
+  bottom: 30px;
   float: right;
   display: flex;
   justify-content: center;
@@ -75,11 +51,65 @@ body {
   color: white;
   background-color: #536bf6;
   font-size: 10px;
-  bottom: 30px;
-  position: relative;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-input::placeholder {
+  font-size: 14px;
 }
 
 .search-icon:hover {
   color: #fff !important;
+}
+
+.filters-container .d-flex {
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 15px;
+}
+.btn {
+  background-color: white;
+  color: rgb(131, 129, 129);
+  border: 1px solid rgb(201, 201, 201);
+}
+
+.dropdown-search {
+  flex-grow: 1;
+  max-width: 300px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.dropdown-search-menu {
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 5px;
+}
+.excel-icon {
+  width: 40px;
+  margin-right: 20px;
+}
+.dropdown-scrollable {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.table {
+  border-radius: 5px;
+  overflow: hidden;
+}
+.container {
+  margin-top: 10px;
+
+  .items th {
+    font-size: 12px;
+  }
+  tbody tr td {
+    font-size: 12px;
+  }
 }
