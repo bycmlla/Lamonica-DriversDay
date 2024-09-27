@@ -60,32 +60,42 @@ export class MotoristaListComponent implements OnInit {
   }
 
   buscarMotoristas(): void {
-    const nome = this.filterValue.trim().toLowerCase();
-
-    if (nome === '') {
-      this.filteredMotoristas = this.motoristas;
-    } else {
-      this.filteredMotoristas = this.motoristas.filter((motorista) =>
-        motorista.nomeMot?.toLowerCase().includes(nome)
-      );
-    }
-    this.cd.detectChanges();
+    this.aplicarFiltros();
   }
 
   buscarMotoristasPorSupervisor(supervisor: string): void {
-    this.selectedSupervisor = supervisor; 
-    this.filterSupervisor = supervisor; 
-    this.motoristaService
-      .buscarMotoristasPorSupervisor(supervisor)
-      .subscribe((data) => {
-        this.filteredMotoristas = data;
-      });
+    this.selectedSupervisor = supervisor;
+    this.aplicarFiltros();
   }
 
   buscarMotoristasPorData(data: Date): void {
-    this.selectedDate = data; 
-    this.filteredMotoristas = this.motoristas.filter(
-      (motorista) => motorista.data === data
-    );
+    this.selectedDate = data;
+    this.aplicarFiltros();
+  }
+
+  aplicarFiltros(): void {
+    let motoristasFiltrados = this.motoristas;
+
+    if (this.filterValue.trim() !== '') {
+      const nome = this.filterValue.trim().toLowerCase();
+      motoristasFiltrados = motoristasFiltrados.filter((motorista) =>
+        motorista.nomeMot?.toLowerCase().includes(nome)
+      );
+    }
+
+    if (this.selectedSupervisor) {
+      motoristasFiltrados = motoristasFiltrados.filter(
+        (motorista) => motorista.supervisor === this.selectedSupervisor
+      );
+    }
+
+    if (this.selectedDate) {
+      motoristasFiltrados = motoristasFiltrados.filter(
+        (motorista) => motorista.data === this.selectedDate
+      );
+    }
+
+    this.filteredMotoristas = motoristasFiltrados;
+    this.cd.detectChanges();
   }
 }
