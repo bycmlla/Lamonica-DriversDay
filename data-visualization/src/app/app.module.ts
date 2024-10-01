@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MotoristaService } from './services/motorista.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, withFetch } from '@angular/common/http';
 import { provideHttpClient } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 
@@ -23,7 +23,7 @@ import { AppComponent } from './app.component';
     MatInputModule,
     HttpClient,
   ],
-  providers: [MotoristaService, provideHttpClient()],
+  providers: [MotoristaService, provideHttpClient(withFetch())],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

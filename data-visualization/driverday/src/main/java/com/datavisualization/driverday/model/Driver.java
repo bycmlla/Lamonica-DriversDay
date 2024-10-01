@@ -2,6 +2,7 @@ package com.datavisualization.driverday.model;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CollectionId;
+import java.math.BigDecimal;
 
 import java.time.LocalDate;
 
@@ -48,6 +49,10 @@ public class Driver {
   private String refeicao;
 
   private String descanso;
+
+  @Column(name = "KM_TOTAL")
+  private BigDecimal kmTotal;
+
 
   public Long getId() {
     return id;
@@ -162,5 +167,12 @@ public class Driver {
   }
   public void setDescanso(String descanso) {
     this.descanso = descanso;
+  }
+  public BigDecimal getKmTotal() {
+    return kmTotal;
+  }
+
+  public void setKmTotal(BigDecimal kmTotal) {
+    this.kmTotal = kmTotal;
   }
 }

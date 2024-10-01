@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-home',
@@ -13,5 +14,13 @@ export class HomeComponent {
 
   navigateToMotoristas() {
     this.router.navigate(['/motoristas']);
+  }
+
+   ngAfterViewInit(): void {
+    gsap.from(".fade-in-image", {
+      duration: 3, 
+      opacity: 0, 
+      ease: "power2.inOut" 
+    });
   }
 }

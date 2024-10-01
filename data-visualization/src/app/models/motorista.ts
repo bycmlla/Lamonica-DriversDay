@@ -13,4 +13,5 @@ export interface Motorista {
     horaExtra: string;
     refeicao: string;
     descanso: string;
+    kmTotal: number;
 }
