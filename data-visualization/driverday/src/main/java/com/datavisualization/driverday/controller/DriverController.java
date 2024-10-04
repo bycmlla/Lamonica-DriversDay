@@ -1,14 +1,10 @@
 package com.datavisualization.driverday.controller;
 
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import com.datavisualization.driverday.model.Driver;
 import com.datavisualization.driverday.repository.DriverRepository;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/drivers")

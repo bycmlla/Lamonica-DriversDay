@@ -1,7 +1,6 @@
 package com.datavisualization.driverday.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.CollectionId;
 import java.math.BigDecimal;
 
 import java.time.LocalDate;
