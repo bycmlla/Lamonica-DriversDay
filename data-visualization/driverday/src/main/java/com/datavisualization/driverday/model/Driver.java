@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "JORNADA_MOTORISTA")
-
+@Access(AccessType.FIELD)
 public class Driver {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

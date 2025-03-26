@@ -7,6 +7,12 @@
     <list default="true" id="378b6ca2-e517-45b4-b32a-6ce2d9df9684" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data-visualization/driverday/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data-visualization/driverday/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-visualization/driverday/src/main/java/com/datavisualization/driverday/model/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/data-visualization/driverday/src/main/java/com/datavisualization/driverday/model/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-visualization/driverday/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/data-visualization/driverday/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-visualization/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/data-visualization/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-visualization/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/data-visualization/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-visualization/src/app/pages/motorista-list/motorista-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data-visualization/src/app/pages/motorista-list/motorista-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +34,24 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.DriverdayApplication.executor": "Run",
+    "Maven.driverday [clean,install,-DskipTests].executor": "Run",
+    "Maven.driverday [clean,install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/camila.aguiar/Documents/CAMILA (LOCAL)/GitHub/angular-data-visualization"
+    "last_opened_file_path": "C:/Users/camila.aguiar/Documents/CAMILA/GitHub/Lamonica-DriversDay",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
+      <command value="mvn clean install -DskipTests " />
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="DriverdayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.datavisualization.driverday.DriverdayApplication" />

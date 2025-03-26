@@ -67,7 +67,6 @@ export class MotoristaListComponent implements OnInit {
         ].filter(Boolean);
 
         this.cd.markForCheck();
-        console.log(this.motoristas)
       });
   }
 
